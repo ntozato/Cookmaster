@@ -17,6 +17,8 @@ Nesse projeto, tive a oportunidade de:
 
 - Consultar arquivos do servidor através de uma api REST.
 
+- Construir a aplicação utilizando arquitetura MSC
+
 
 ## Instalação
 
@@ -28,15 +30,18 @@ Nesse projeto, tive a oportunidade de:
 
 2. Instale as dependências:
 
-- `npm install`
+  - `npm install`
 
-3. Inicie o projeto com `npm start
+3. Inicie o projeto:
+
+  - `npm start`
 
 
-## Rotas disponiveis
+## Rotas disponíveis
 
-POST/users cadastra usuário
-espera no body:
+### POST/users
+  - cadastra usuário
+  - espera no body:
 
 {
   "name": "userName",
@@ -44,18 +49,24 @@ espera no body:
   "password": "userPassword",
 }
 
-POST/login realiza login e retorna token JWT
-espera no body:
+### POST/login
+ - realiza login e retorna token JWT
+ - espera no body:
 
 {
   "email": "email@email.com",
   "password": "userPassword",
 }
 
-GET/recipes retorna todas as receitas
-GET/recipes/ID retorna uma receita especifica
-PUT/recipes/ID atualiza receita especifica, valida token JWT
-espera no body:
+### GET/recipes
+  - retorna todas as receitas
+
+### GET/recipes/id
+  - retorna uma receita especifica
+### PUT/recipes/id
+  - atualiza receita especifica, valida token JWT
+  - espera no Header: `authorization: "token gerado no login"`
+  - espera no body:
 
 {
   "name": "recipeName",
@@ -63,11 +74,16 @@ espera no body:
   "preparation": "preparationSteps",
 }
 
-PUT/recipes/ID/image cadastra imagem de receita ja existente, valida token JWT
-espera no body: form-data, KEY image e tipo jpeg
 
-POST/recipes cadastra uma receita, valida token JWT
-espera no body:
+### PUT/recipes/id/image
+  - cadastra imagem de receita ja existente, valida token JWT
+  - espera no Header: `authorization: "token gerado no login"`
+  - espera no body: form-data, KEY image e tipo jpeg
+
+### POST/recipes
+  - cadastra uma receita, valida token JWT
+  - espera no Header: `authorization: "token gerado no login"`
+  - espera no body:
 
 {
   "name": "recipeName",
@@ -75,5 +91,7 @@ espera no body:
   "preparation": "preparationSteps",
 }
 
-DELETE/recipes/ID excluir uma receita, valida token JWT
+### DELETE/recipes/id
+  - espera no Header: `authorization: "token gerado no login"`
+  - exclui uma receita, valida token JWT
 
