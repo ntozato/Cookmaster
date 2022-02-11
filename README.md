@@ -94,4 +94,3 @@ Nesse projeto, tive a oportunidade de:
 ### DELETE/recipes/id
   - espera no Header: `authorization: "token gerado no login"`
   - exclui uma receita, valida token JWT
-
